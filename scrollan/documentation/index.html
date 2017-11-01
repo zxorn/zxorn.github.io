@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>
+      
+      Scrollan demo
+      
+    </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    
+<link href="../css/blog.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/scrollan.css" />
+    <link rel="stylesheet" href="../css/base.css" />
+  </head>
+  <body>
+    <nav id="navbar-container" class="navbar navbar-expand-md navbar-dark fixed-top">
+  <a class="navbar-brand" href="">Scrollan</a>
+  <div id="scrollan-output"></div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      
+      
+        
+          <li class="nav-item">
+            <a class="nav-link" href="../">Presentation</a>
+          </li>
+        
+      
+        
+          <li class="nav-item active">
+            <a class="nav-link" href="../documentation/">Demo &amp; documentation<span class="sr-only">(current)</span></a>
+          </li>
+        
+      
+    </ul>
+  </div>
+</nav>
+
+
+    
+<div class="content-wrapper">
+  <main role="main" class="container">
+    <div class="row">
+      <div id="blog-content" class="col-md-8 blog-main">
+        <div class="blog-post">
+          <h1 class="blog-post-title">Demo &amp; documentation</h1>
+          <p class="blog-post-meta">October 21, 2017 by <a href="#">zxorn</a></p>
+          <hr>
+          <p>
+To give you a demonstration of how <code>Scrollan</code> works and how you can use it, we've
+setup this <b>Bootstrap 4</b> blog template (<a href="http://getbootstrap.com/docs/4.0/examples/blog/">based on this template</a>) as an example.
+</p>
+
+<p>
+Try scrolling around on this page and you'll see how <code>Scrollan</code> will render a
+progress indicator under the top menu and a headings menu to the left. While you
+read through the instructions on this page you'll notice how <code>Scrollan</code> helps
+you keep track of where you are in the content structure.
+</p>
+
+<div id="outline-container-org5f1195a" class="outline-2">
+<h2 id="org5f1195a">Usage</h2>
+<div class="outline-text-2" id="text-org5f1195a">
+<p>
+As stated in the presentation of this component, to make things easier you can
+either run <code>Scrollan</code> as a jQuery plugin or without a framework using regular
+Javascript. There are no downsides to either method, just pick whatever method
+you are most comfortable with! To start out you need to:
+</p>
+
+<ul class="org-ul">
+<li>Have a <code>div</code> where <code>Scrollan</code> can render it's content</li>
+<li>Include the <code>Scrollan</code> CSS file</li>
+<li>Include the <code>Scrollan</code> Javascript file</li>
+</ul>
+
+<p>
+Let's use this page as an example, that way you can view the source to get the whole picture.
+</p>
+</div>
+
+<div id="outline-container-org7811fda" class="outline-3">
+<h3 id="org7811fda">Using jQuery</h3>
+<div class="outline-text-3" id="text-org7811fda">
+<p>
+To initialize <code>Scrollan</code> as a jQuery plugin we begin by selecting the <code>div</code>
+where we want <code>Scrollan</code> to render it's content:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-javascript">$( document ).ready(<span style="color: #195466; font-weight: bold;">function</span>() {
+  $(<span style="color: #2aa889;">'#scrollan-output'</span>).Scrollan();
+});
+</code></pre>
+</div>
+
+<p>
+By not given <code>Scrollan</code> any options the default behaviour will be used:
+</p>
+
+<ul class="org-ul">
+<li>Prefix all CSS classes with <code>scrollan-</code></li>
+<li>Use <b>all</b> headings (h1 to h5) on the current page</li>
+<li>Use no top padding</li>
+</ul>
+
+<p>
+To change this behaviour we can use 3 options:
+</p>
+
+<table class="table">
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>cssPrefix</code></td>
+<td class="org-left"><code>String</code></td>
+<td class="org-left">Prefix to use for all CSS classes</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>headings</code></td>
+<td class="org-left"><code>jQuery object</code></td>
+<td class="org-left">Selection of all headings to use</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>topPadding</code></td>
+<td class="org-left"><code>Number</code></td>
+<td class="org-left">Amount of pixels to pad calculations</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+To give you an idea how those options are used, here's how you would initialize
+<code>Scrollan</code> on this demo page:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-javascript">$( document ).ready(<span style="color: #195466; font-weight: bold;">function</span>() {
+  $(<span style="color: #2aa889;">'#scrollan-output'</span>).Scrollan({
+    cssPrefix: <span style="color: #2aa889;">'scrollan'</span>,
+    headings: $(<span style="color: #2aa889;">'#blog-content'</span>).find(<span style="color: #2aa889;">':header'</span>),
+    topPadding: $(<span style="color: #2aa889;">'#navbar-container'</span>).height()
+  });
+});
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9f023d6" class="outline-3">
+<h3 id="org9f023d6">Without a framework</h3>
+<div class="outline-text-3" id="text-org9f023d6">
+<p>
+To initialize <code>Scrollan</code> on this page without a framework we begin by selecting
+the output <code>div</code> and then initialize <code>Scrollan</code>:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-javascript">document.addEventListener(<span style="color: #2aa889;">'DOMContentLoaded'</span>, <span style="color: #195466; font-weight: bold;">function</span>(<span style="color: #599cab;">event</span>) {
+  <span style="color: #195466; font-weight: bold;">var</span> <span style="color: #599cab;">scrollan</span> = <span style="color: #195466; font-weight: bold;">new</span> <span style="color: #d26937;">Scrollan</span>(
+    document.querySelector(<span style="color: #2aa889;">'#scrollan-output'</span>)
+  );
+});
+</code></pre>
+</div>
+
+<p>
+By not given <code>Scrollan</code> any more arguments the default behaviour will be used:
+</p>
+
+<ul class="org-ul">
+<li>Prefix all CSS classes with <code>scrollan-</code></li>
+<li>Use <b>all</b> headings (h1 to h5) on the current page</li>
+<li>Use no top padding</li>
+</ul>
+
+<p>
+To change this behaviour we can use 3 extra arguments of the <code>Scrollan</code>
+function. Here are all arguments for <code>Scrollan</code> (including the output div):
+</p>
+
+<table class="table">
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Argument</th>
+<th scope="col" class="org-left">Type</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">1</td>
+<td class="org-left"><code>HTMLElement</code></td>
+<td class="org-left">Div to render <code>Scrollan</code> inside</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-left"><code>String</code></td>
+<td class="org-left">Prefix to use for all CSS classes</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-left"><code>NodeList</code></td>
+<td class="org-left">Selection of all headings to use</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-left"><code>Number</code></td>
+<td class="org-left">Amount of pixels to pad calculations</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+To give you an idea how those options are used, here's how you would initialize
+<code>Scrollan</code> on this demo page:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-javascript">document.addEventListener(<span style="color: #2aa889;">'DOMContentLoaded'</span>, <span style="color: #195466; font-weight: bold;">function</span>(<span style="color: #599cab;">event</span>) {
+  <span style="color: #195466; font-weight: bold;">var</span> <span style="color: #599cab;">headings</span> = document
+      .querySelector(<span style="color: #2aa889;">'#blog-content'</span>)
+      .querySelectorAll(<span style="color: #2aa889;">'h1,h2,h3,h4,h5'</span>);
+
+  <span style="color: #195466; font-weight: bold;">var</span> <span style="color: #599cab;">navbarHeight</span> = document
+      .querySelector(<span style="color: #2aa889;">'#navbar-container'</span>)
+      .getBoundingClientRect()
+      .height;
+
+  <span style="color: #195466; font-weight: bold;">var</span> <span style="color: #599cab;">scrollan</span> = <span style="color: #195466; font-weight: bold;">new</span> <span style="color: #d26937;">Scrollan</span>(
+    document.querySelector(<span style="color: #2aa889;">'#scrollan-output'</span>),
+    <span style="color: #2aa889;">'scrollan'</span>,
+    headings,
+    navbarHeight
+  );
+});
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6311e42" class="outline-2">
+<h2 id="org6311e42">Performance</h2>
+<div class="outline-text-2" id="text-org6311e42">
+<p>
+Since the scrolling event can fire <b>very</b> frequently <code>Scrollan</code> only runs its
+internal update functionality when the browser is ready to update the screen.
+This is done by using the function <code>window.requestAnimationFrame</code>. Here's a
+quote about what this function does:
+</p>
+
+<blockquote>
+<p>
+The window.requestAnimationFrame() method tells the browser that you wish to
+perform an animation and requests that the browser call a specified function
+to update an animation before the next repaint. The method takes a callback
+as an argument to be invoked before the repaint.
+</p>
+
+<p>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame">source</a>
+</p>
+</blockquote>
+
+<p>
+<code>Scrollan</code> doesn't do anything unless a scroll event has fired, this is to
+avoid using up resources on while no ones using the site. For example when
+the site is in an inactive browser tab.
+</p>
+
+<p>
+<code>Scrollan</code> is based on <code>Elm</code> which has <a href="http://elm-lang.org/blog/blazing-fast-html-round-two">one of the fastest</a> virtual DOM
+implementations around.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc062c7c" class="outline-2">
+<h2 id="orgc062c7c">Styling</h2>
+<div class="outline-text-2" id="text-orgc062c7c">
+<p>
+To allow easy styling a CSS class is assigned to each of the parts that make up
+the component along with the chosen CSS prefix. In the examples below the
+default CSS prefix <code>scrollan</code> is used.
+</p>
+
+<p>
+There are 2 major parts of the component: the progress bar and the headings menu.
+</p>
+</div>
+
+<div id="outline-container-org07eaead" class="outline-3">
+<h3 id="org07eaead">Progress bar</h3>
+<div class="outline-text-3" id="text-org07eaead">
+<p>
+The progress bar is rendered by <code>Scrollan</code> each time you scroll. Here's what the
+output looks like on this demo page:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-html">&lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-progress"</span> <span style="color: #599cab;">style</span>=<span style="color: #2aa889;">"width: 100%;"</span>&gt;
+  &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-progress-indicator"</span>
+       <span style="color: #599cab;">style</span>=<span style="color: #2aa889;">"height: 100%; width: 13.1049%;"</span>&gt;
+  &lt;/<span style="color: #599cab;">div</span>&gt;
+&lt;/<span style="color: #599cab;">div</span>&gt;
+</code></pre>
+</div>
+
+<p>
+On this demo page the progress bar has a fixed position under the top menu
+with a width that stretches across the entire page, like so:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-css"><span style="color: #245361;">/*</span>
+<span style="color: #245361;">On this page we've put Scrollan inside the top menu so that we can put the</span>
+<span style="color: #245361;">progress indicator at the bottom of the top menu no matter what height it has.</span>
+<span style="color: #245361;">*/</span>
+<span style="color: #599cab;">.scrollan-progress </span>{
+  <span style="color: #599cab;">position</span>: absolute;
+  <span style="color: #599cab;">left</span>: 0;
+  <span style="color: #599cab;">bottom</span>: 0;
+  <span style="color: #599cab;">width</span>: 100%;
+  <span style="color: #599cab;">height</span>: 0.2rem;
+  <span style="color: #599cab;">z-index</span>: 1030;
+  <span style="color: #599cab;">background-color</span>: #e9ecef;
+}
+
+
+<span style="color: #599cab;">.scrollan-progress-indicator </span>{
+  <span style="color: #599cab;">background-color</span>: #43c995;
+}
+</code></pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc3f2c58" class="outline-3">
+<h3 id="orgc3f2c58">Headings menu</h3>
+<div class="outline-text-3" id="text-orgc3f2c58">
+<p>
+The headings menu is rendered as a hierarchy by <code>Scrollan</code> each time you
+scroll. Here's what the output looks like on this demo page:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-html">&lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu"</span>&gt;
+  &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+    &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;&lt;/<span style="color: #599cab;">a</span>&gt;
+    &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+      &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Demo <span style="color: #599cab;">&amp;amp;</span> instructions&lt;/<span style="color: #599cab;">a</span>&gt;
+      &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+        &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Usage&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+          &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Using jQuery&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;/<span style="color: #599cab;">div</span>&gt;
+        &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+          &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Without a framework&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;/<span style="color: #599cab;">div</span>&gt;
+      &lt;/<span style="color: #599cab;">div</span>&gt;
+      &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+        &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Performance&lt;/<span style="color: #599cab;">a</span>&gt;
+      &lt;/<span style="color: #599cab;">div</span>&gt;
+      &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+        &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Styling&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item scrollan-menu-item-active"</span>&gt;
+          &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Progress bar&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;/<span style="color: #599cab;">div</span>&gt;
+        &lt;<span style="color: #599cab;">div</span> <span style="color: #599cab;">class</span>=<span style="color: #2aa889;">"scrollan-menu-item"</span>&gt;
+          &lt;<span style="color: #599cab;">a</span> <span style="color: #599cab;">href</span>=<span style="color: #2aa889;">"javascript:void(0)"</span>&gt;Headings menu&lt;/<span style="color: #599cab;">a</span>&gt;
+        &lt;/<span style="color: #599cab;">div</span>&gt;
+      &lt;/<span style="color: #599cab;">div</span>&gt;
+    &lt;/<span style="color: #599cab;">div</span>&gt;
+  &lt;/<span style="color: #599cab;">div</span>&gt;
+&lt;/<span style="color: #599cab;">div</span>&gt;
+</code></pre>
+</div>
+
+<p>
+On this demo page the headings menu has a fixed position to the left under the
+progress bar with padding for each level, like this:
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-css"><span style="color: #599cab;">.scrollan-menu </span>{
+  <span style="color: #599cab;">position</span>: fixed;
+  <span style="color: #599cab;">top</span>: 3.7rem;
+  <span style="color: #599cab;">left</span>: 0;
+  <span style="color: #599cab;">width</span>: 20%;
+  <span style="color: #599cab;">z-index</span>: 1030;
+}
+
+
+<span style="color: #599cab;">.scrollan-menu-item </span>{
+  <span style="color: #599cab;">padding-top</span>: 5px;
+  <span style="color: #599cab;">padding-left</span>: 20px;
+}
+<span style="color: #245361;">/* </span><span style="color: #245361;">Root item in the menu should not have any padding </span><span style="color: #245361;">*/</span>
+<span style="color: #599cab;">.scrollan-menu &gt; .scrollan-menu-item </span>{
+  <span style="color: #599cab;">padding-left</span>: 0;
+}
+<span style="color: #245361;">/* </span><span style="color: #245361;">Currently active heading should show it's link as bold  </span><span style="color: #245361;">*/</span>
+<span style="color: #599cab;">.scrollan-menu-item-active &gt; a </span>{
+  <span style="color: #599cab;">font-weight</span>: bold;
+}
+</code></pre>
+</div>
+
+<p>
+The main content area and right side menu has been wrapped in a <code>div</code> with the
+class name <code>content-wrapper</code> so that the margin to the left can be controlled.
+Depending on what size of device the page is viewed on the visibility of
+<code>Scrollan</code> menu is also controlled.
+</p>
+
+<div class="org-src-container">
+<pre><code class="src src-css"><span style="color: #599cab;">.content-wrapper </span>{
+  <span style="color: #599cab;">width</span>: 70%;
+  <span style="color: #599cab;">margin-left</span>: 20%;
+}
+
+
+<span style="color: #245361;">/*</span>
+<span style="color: #245361;">Hide scrollan on devices smaller than Bootstraps "Large" breakpoint.</span>
+
+<span style="color: #245361;">Read more about the available breakpoints here:</span>
+<span style="color: #245361;">https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints</span>
+<span style="color: #245361;">*/</span>
+<span style="color: #d26937;">@media</span> (max-width: 991px) {
+  <span style="color: #599cab;">.scrollan-menu </span>{
+    <span style="color: #599cab;">display</span>: none;
+  }
+
+  <span style="color: #599cab;">.content-wrapper </span>{
+    <span style="color: #599cab;">width</span>: 100%;
+    <span style="color: #599cab;">margin-left</span>: 0;
+  }
+}
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+        </div>
+      </div>
+
+      <aside class="col-md-4 ml-md-auto blog-sidebar">
+  <div class="sidebar-module sidebar-module-inset">
+    <h4>About</h4>
+    <p>Scrollan is made by <b>zxorn</b>, an exclusive seller of quality Javascript components on Envato Market.</p>
+    <p>
+      Feel free to contact us on any of the social media links below.
+    </p>
+  </div>
+  <div class="sidebar-module">
+    <h4>Contact</h4>
+    <ol class="list-unstyled">
+      <li>
+        <a href="https://codecanyon.net/user/zxorn">Codecanyon</a>
+      </li>
+      <li>
+        <a href="https://reddit.com/u/zxorn1">Reddit</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/zxorn1">Twitter</a>
+      </li>
+    </ol>
+  </div>
+</aside>
+
+    </div>
+  </main>
+</div>
+
+<footer class="blog-footer">
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+</footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="../js/scrollan.min.js"></script>
+
+    
+<script src="../js/no-framework.js"></script>
+
+  </body>
+</html>

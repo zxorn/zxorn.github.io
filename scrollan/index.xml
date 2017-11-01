@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Presentation on Scrollan demo</title>
+    <link>/</link>
+    <description>Recent content in Presentation on Scrollan demo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <managingEditor>toshiki@protonmail.com (Zxorn)</managingEditor>
+    <webMaster>toshiki@protonmail.com (Zxorn)</webMaster>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Easy to use</title>
+      <link>/features/easy-to-use/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>toshiki@protonmail.com (Zxorn)</author>
+      <guid>/features/easy-to-use/</guid>
+      <description>To make Scrollan easy to use we have focused a lot of our attention on creating great examples and documentation.</description>
+    </item>
+    
+    <item>
+      <title>Versatile</title>
+      <link>/features/versatile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>toshiki@protonmail.com (Zxorn)</author>
+      <guid>/features/versatile/</guid>
+      <description>Regardless what technology you have built your web site with, you can use Scrollan to enhance the user experience.</description>
+    </item>
+    
+    <item>
+      <title>Robust</title>
+      <link>/features/robust/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>toshiki@protonmail.com (Zxorn)</author>
+      <guid>/features/robust/</guid>
+      <description>Software that looks good and provides value to users is nothing with being robust, that&amp;rsquo;s why we prioritize robustness over new features.</description>
+    </item>
+    
+    <item>
+      <title>Demo &amp; documentation</title>
+      <link>/documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>toshiki@protonmail.com (Zxorn)</author>
+      <guid>/documentation/</guid>
+      <description>To give you a demonstration of how Scrollan works and how you can use it, we&#39;ve setup this Bootstrap 4 blog template (based on this template) as an example.  Try scrolling around on this page and you&#39;ll see how Scrollan will render a progress indicator under the top menu and a headings menu to the left. While you read through the instructions on this page you&#39;ll notice how Scrollan helps you keep track of where you are in the content structure.</description>
+    </item>
+    
+  </channel>
+</rss>

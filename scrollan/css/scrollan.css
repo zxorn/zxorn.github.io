@@ -1,0 +1,63 @@
+/*
+On this page we've put Scrollan inside the top menu so that we can put the
+progress indicator at the bottom of the top menu no matter what height it has.
+*/
+.scrollan-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.2rem;
+  z-index: 1030;
+  background-color: #e9ecef;
+}
+
+
+.scrollan-progress-indicator {
+  background-color: #43c995;
+}
+
+.scrollan-menu {
+  position: fixed;
+  top: 3.7rem;
+  left: 0;
+  width: 20%;
+  z-index: 1030;
+}
+
+
+.scrollan-menu-item {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+/* Root item in the menu should not have any padding */
+.scrollan-menu > .scrollan-menu-item {
+  padding-left: 0;
+}
+/* Currently active heading should show it's link as bold  */
+.scrollan-menu-item-active > a {
+  font-weight: bold;
+}
+
+.content-wrapper {
+  width: 70%;
+  margin-left: 20%;
+}
+
+
+/*
+Hide scrollan on devices smaller than Bootstraps "Large" breakpoint.
+
+Read more about the available breakpoints here:
+https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints
+*/
+@media (max-width: 991px) {
+  .scrollan-menu {
+    display: none;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    margin-left: 0;
+  }
+}
