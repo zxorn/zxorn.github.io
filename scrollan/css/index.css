@@ -18,3 +18,8 @@ body {
 .marketing .col-lg-4 img {
   margin-bottom: 2rem;
 }
+
+
+.demo-video {
+  max-width: 100%;
+}
